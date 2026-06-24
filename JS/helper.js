@@ -18,7 +18,6 @@ export async function setInfo() {
     let personalInfo = document.querySelectorAll('.identity div p');
     let phoneNum = document.querySelector('.phone-l');
     let mail = document.querySelector('.mail-l');
-    let age = document.querySelector('.age');
     let copyRight = document.querySelector('footer .copy-right');
     await fetch('./data.json')
         .then((response) => response.json())
@@ -31,7 +30,6 @@ export async function setInfo() {
             phoneNum.textContent = `${data.phone_num}`;
             mail.textContent = `${data.email}`;
             copyRight.textContent = ` ${date.getFullYear()}`;
-            age.textContent = date.getFullYear() - data.personal_information.birth_year;
             addSkills(data.skills);
         });
 }
